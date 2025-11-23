@@ -1,71 +1,16 @@
 <template>
-  <div class="slider-container w-full h-[60vh] max-h-[500px] mx-auto overflow-hidden relative">
-   
-    <div
-      class="flex transition-transform duration-500"
-      :style="{ transform: `translateX(-${currentIndex * 100}%)` }"
-    >
-      <div
-        v-for="(image, index) in images"
-        :key="index"
-        class="min-w-full h-full flex-shrink-0"
-      >
-        <img
-          :src="image.url"
-          alt="Slide Image"
-          class="w-full h-full object-cover"
-        />
-      </div>
-    </div>
-
-    
-    <button
-      class="absolute left-4 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white px-3 py-1 rounded-full z-10"
-      @click="prevSlide"
-    >
-      ‹
-    </button>
-    <button
-      class="absolute right-4 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white px-3 py-1 rounded-full z-10"
-      @click="nextSlide"
-    >
-      ›
-    </button>
-
-    
-    <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2 z-10">
-      <button
-        v-for="(image, index) in images"
-        :key="'dot-' + index"
-        class="w-3 h-3 rounded-full"
-        :class="currentIndex === index ? 'bg-white' : 'bg-gray-400'"
-        @click="goToSlide(index)"
-      ></button>
-    </div>
+  <div class="p-6">
+    <RandomSlider :images="imageLinks" />
   </div>
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import RandomSlider from './RandomSlider.vue';
 
-const images = ref([
-  { url: '/images/slide1.jpg' },
-  { url: '/images/slide2.jpg' },
-  { url: '/images/slide3.jpg' },
-]);
-
-const currentIndex = ref(0);
-const totalSlides = images.value.length;
-
-const prevSlide = () => {
-  currentIndex.value = (currentIndex.value - 1 + totalSlides) % totalSlides;
-};
-
-const nextSlide = () => {
-  currentIndex.value = (currentIndex.value + 1) % totalSlides;
-};
-
-const goToSlide = (index) => {
-  currentIndex.value = index;
-};
+const imageLinks = [
+  'https://www.kodlab.com/modules/ps_imageslider/images/c9664f01d5fd2a0628ce5b1c8b62126ed5473b92_Excel%20ile%20Tam%20Gu%CC%88c%CC%A7%20banner%20c%CC%A7%C4%B1kt%C4%B1.jpg',
+  'https://www.kodlab.com/modules/ps_imageslider/images/2dde062d51b2efe4f9cf8ae575e73e7e45b693a2_Bir%20Bilis%CC%A7imci%20Yetis%CC%A7iyor%20banner%20c%CC%A7%C4%B1kt%C4%B1.jpg',
+  'https://www.kodlab.com/modules/ps_imageslider/images/73f919bfae528013c2ae649ab2b0f6793ccd55c3_YAPAY%20ZEKA%CC%82%20TABANLI%20SI%CC%87BER%20GU%CC%88VENLI%CC%87G%CC%86E%20GI%CC%87RI%CC%87S%CC%A7%20banner%20c%CC%A7%C4%B1kt%C4%B1.jpg',
+  'https://www.kodlab.com/modules/ps_imageslider/images/af8c8d7a321cf864adaaff52fdc06c9ef63740c4_fb96c7df3089094a994c46b9bcfe5287225d7029_S%C4%B1f%C4%B1rbir%20yay%C4%B1nlar%C4%B1%20site%20banner%20copy.jpg'
+];
 </script>
