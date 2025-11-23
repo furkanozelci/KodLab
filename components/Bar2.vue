@@ -21,6 +21,14 @@
       </ul>
     </nav>
 
+
+
+
+
+
+
+
+
     <div v-if="filteredProducts.length" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-4">
       <div
         v-for="(product, index) in filteredProducts"
@@ -55,7 +63,7 @@
           </option>
         </select>
         <button type="submit" class="bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-4 rounded">
-          Ürün Ekle
+          Ürün Ekleee
         </button>
       </form>
     </div>
