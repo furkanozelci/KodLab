@@ -69,26 +69,3 @@ const goToSlide = (index) => {
   currentIndex.value = index;
 };
 </script>
-
-<style scoped>
-
-img {
-  transition: transform 0.3s ease-in-out;
-}
-img:hover {
-  transform: scale(1.05);
-}
-
-
-button.w-3.h-3 {
-  transition: background-color 0.3s;
-}
-
-
-button {
-  transition: background-color 0.3s;
-}
-button:hover {
-  background-color: #4b5563;
-}
-</style>
